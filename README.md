@@ -71,7 +71,7 @@ Once the server is running, access the application in your browser at:
 
 ## 🧪 Running the Test Suite
 
-Execute the unit test suite using `pytest`:
+Execute the unit test suite using `python -m pytest`:
 
 ```bash
 python -m pytest
