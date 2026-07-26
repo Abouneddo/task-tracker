@@ -1,0 +1,19 @@
+# Python & Virtual Environments (What you already have)
+venv/
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Environment & Secrets (Crucial so you don't leak credentials)
+.env
+*.pem
+*.key
+
+# Operating System Files (Keeps junk files off GitHub)
+.DS_Store
+Thumbs.db
+
+# IDE Files (Optional, but good practice)
+.vscode/
+.idea/
