@@ -1,0 +1,6 @@
+-p
+app
+docs
+static
+tests
+venv
