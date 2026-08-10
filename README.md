@@ -1,3 +1,4 @@
+```markdown
 # Task Tracker Application
 
 A lightweight FastAPI application for managing tasks, complete with tag filtering, due dates, and a Kanban board frontend.
@@ -14,7 +15,7 @@ A lightweight FastAPI application for managing tasks, complete with tag filterin
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Abouneddo/task-tracker.git
+   git clone [https://github.com/Abouneddo/task-tracker.git](https://github.com/Abouneddo/task-tracker.git)
    cd task-tracker
 
 ```
@@ -66,7 +67,7 @@ uvicorn app.main:app --reload
 
 ```
 
-Access the backend API at `[http://127.0.0.1:8000](http://127.0.0.1:8000)` and the interactive docs at `[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)`.
+Access the backend API at `http://127.0.0.1:8000` and the interactive docs at `http://127.0.0.1:8000/docs`.
 
 ### How to run tests
 
@@ -107,9 +108,3 @@ curl http://localhost:8000/health
 
 
 * **One AI suggestion I rejected or corrected:** Refused an AI attempt to add full JWT authentication middleware since scope changes and new features were explicitly prohibited.
-
-
-
-```
-
-```
