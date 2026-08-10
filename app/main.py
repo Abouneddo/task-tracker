@@ -11,7 +11,7 @@ from fastapi.staticfiles import StaticFiles
 
 from app.database import tasks_db
 from app.models import Task
-from app.schemas import TaskCreate, TaskResponse, TaskUpdate
+from app.schemas import TaskCreate, TaskResponse, TaskUpdate, validate_status_transition
 
 # 1. Instantiate app ONCE at top
 app = FastAPI(title="Task Tracker API")
@@ -86,7 +86,19 @@ def update_task(task_id: str, task_in: TaskUpdate):
         raise HTTPException(status_code=404, detail="Task not found")
 
     stored_task = tasks_db[task_id]
-    update_data = task_in.model_dump(exclude_unset=True)
+
+    # Extract unset fields (supports Pydantic v2 model_dump or v1 dict)
+    if hasattr(task_in, "model_dump"):
+        update_data = task_in.model_dump(exclude_unset=True)
+    else:
+        update_data = task_in.dict(exclude_unset=True)
+
+    # Validate status transition if status is being updated
+    if "status" in update_data and update_data["status"] is not None:
+        validate_status_transition(
+            current_status=stored_task.get("status", "todo"),
+            new_status=update_data["status"]
+        )
 
     # Handle converting date object to string if passed in update
     if "due_date" in update_data and isinstance(update_data["due_date"], date):
@@ -112,4 +124,4 @@ def delete_task(task_id: str):
 
 
 # --- Static Files Mount (Must be mounted AFTER API routes) ---
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
