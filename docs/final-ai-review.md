@@ -1,5 +1,10 @@
 # Final AI Review & Governance Log
 
+## Three AI Usage Rules
+1. **Verification before Commitment:** Every AI-generated code modification, schema, or configuration must be manually tested and verified locally before merging.
+2. **Security & Data Privacy:** Do not expose secret keys, environment credentials, or personal identification data inside AI prompts or committed Markdown logs.
+3. **Architectural Ownership:** AI is utilized as an assistant for refactoring and debugging; final design choices, business rule logic, and code quality remain the developer's responsibility.
+
 ## AGENTS.md Checklist
 - [x] Confirmed guardrails are defined in root `AGENTS.md`.
 - [x] Confirmed restriction rules against unauthorized edits to `app/` and `frontend/`.
