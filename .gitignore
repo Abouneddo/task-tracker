@@ -16,4 +16,8 @@ Thumbs.db
 
 # IDE Files (Optional, but good practice)
 .vscode/
-.idea/
+.idea/"*.egg-info/" 
+"build/" 
+*.egg-info/ 
+build/ 
+dist/ 
